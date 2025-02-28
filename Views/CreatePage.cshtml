@@ -1,0 +1,130 @@
+﻿@model InvterViewTest.tbl_User_New;
+<style>
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 500px;
+        margin: auto;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    input {
+        padding: 5px;
+        width: 100%;
+    }
+</style>
+
+<div class="form-container">
+    <div class="form-row">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" id="usernametxt"/>
+        </div>
+        <div class="form-group">
+            <label>First Name</label>
+            <input type="text" id="fdtnametxt" />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" id="lastnametxt" />
+        </div>
+        <div class="form-group">
+            <label>Department Name</label>
+            <input type="text" id="departmenttxt" />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Manager ID</label>
+            <input type="text" id="manageridtxt" />
+        </div>
+        <div class="form-group">
+            <label>Seniority</label>
+            <input type="text" id="senioritytxt" />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Employee Code</label>
+            <input type="text" id="empCodetxt" />
+        </div>
+        <div class="form-group">
+            <label>Role</label>
+            <input type="text" id="roletxt" />
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Last Login</label>
+            <input type="date" id="LastLongTxt" />
+        </div>
+        <div class="form-group">
+            <label>DOJ</label>
+            <input id="Dojtext" type="date" />
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <button type="submit" style="background-color:forestgreen" onclick="oncreatData()"> Submit</button>
+        </div>
+        <div class="form-group">
+            <button type="submit" style="background-color:red">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function oncreatData(){
+        debugger;
+        var obj = new Object();
+        obj.UserName = $('#usernametxt').val();
+        obj.FName = $('#fdtnametxt').val();
+        obj.LName = $('#lastnametxt').val();
+        obj.Department = $('#departmenttxt').val();
+        obj.MgrId = $('#manageridtxt').val();
+        obj.Seniority = $('#senioritytxt').val();
+        obj.EmpCode = $('#empCodetxt').val();
+        obj.Role = $('#roletxt').val();
+        obj.LastLogin = $('#LastLongTxt').val();
+        obj.DOJ = $('#Dojtext').val();
+
+        $.ajax({
+            url: '/Home/Create',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(obj),
+            success: function (response)
+            {
+                alert("Data created successfully!");
+                console.log(response);
+            },
+            error: function (xhr, status, error) {
+                alert("Error: " + xhr.responseText);
+                console.log(xhr, status, error);
+            }
+        });
+    }
+</script>

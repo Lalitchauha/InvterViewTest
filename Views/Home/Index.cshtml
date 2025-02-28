@@ -1,8 +1,49 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model InvterViewTest.tbl_User_New
 
+@{
+    ViewData["Title"] = "Home Page";
+
+    var modeldata = Model;
+}
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div style="float: right; margin: 0px 0px 0px 10px;">
+        <a href="/Home/insertCreate">Create</a>
+    </div>
+
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th> UserID </th>
+                <th> UserName </th>
+                <th> FName </th>
+                <th> LName </th>
+                <th> Department </th>
+                <th> MgrId </th>
+                <th> Seniority </th>
+                <th> EmpCode </th>
+                <th> Role </th>
+                <th> LastLogin </th>
+                <th> DOJ </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.tbl_Userslst)
+            {
+                <tr>
+                    <td title="@item.UserId"> @item.UserId </td>
+                    <td title="@item.UserName"> @item.UserName </td>
+                    <td title="@item.FName"> @item.FName </td>
+                    <td title="@item.LName"> @item.LName </td>
+                    <td title="@item.Department"> @item.Department </td>
+                    <td title="@item.MgrId"> @item.MgrId </td>
+                    <td title="@item.Seniority"> @item.Seniority </td>
+                    <td title="@item.EmpCode"> @item.EmpCode </td>
+                    <td title="@item.Role"> @item.Role </td>
+                    <td title="@item.LastLogin"> @item.LastLogin.ToShortDateString() </td>
+                    <td title="@item.DOJ"> @item.DOJ.ToShortDateString() </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

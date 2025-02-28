@@ -34,7 +34,9 @@ namespace InvterViewTest
 
                 foreach (var dtField in dtlFieldNames)
                 {
-                    PropertyInfo propertyInfos = classObj.GetType().GetProperty(dtField.Name.ToLower());
+                    string fieldName = dtField.Name.Trim();
+                    PropertyInfo propertyInfos = classObj.GetType().GetProperties()
+                        .FirstOrDefault(p => p.Name.Equals(fieldName, StringComparison.OrdinalIgnoreCase));
 
                     var field = objFieldNames.Find(x => x.Name.ToLower() == dtField.Name.ToLower());
 
