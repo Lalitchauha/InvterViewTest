@@ -21,7 +21,7 @@ namespace InvterViewTest.Controllers
         {
             DataBaseConnecttionCls dataBaseConnecttionCls = new DataBaseConnecttionCls(Configuration);
 
-            string query = "Select * from tbl_User_New";
+            string query = "Select * from Student1";
             tbl_User_New tbl_User = new tbl_User_New();
             // Fetch list of employees
             tbl_User.tbl_Userslst = dataBaseConnecttionCls.GetData<tbl_User_New>(query);
