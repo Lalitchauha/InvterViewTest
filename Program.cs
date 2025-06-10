@@ -1,7 +1,7 @@
-using Testdepandencyinjections;
+//using Testdepandencyinjections;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddTransient<ISingleTone, PrintNameClass>();
+//builder.Services.AddTransient<ISingleTone, PrintNameClass>();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddCors(options =>

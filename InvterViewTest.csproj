@@ -18,8 +18,8 @@
 		<PackageReference Include="System.Security.Permissions" Version="9.0.2" />
 	</ItemGroup>
 
-	<ItemGroup>
+	<!--<ItemGroup>
 	  <ProjectReference Include="..\Testdepandencyinjections\Testdepandencyinjections.csproj" />
-	</ItemGroup>
+	</ItemGroup>-->
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using InvterViewTest.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using Testdepandencyinjections;
+//using Testdepandencyinjections;
 
 namespace InvterViewTest.Controllers
 {
@@ -9,12 +9,12 @@ namespace InvterViewTest.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         public IConfiguration Configuration;
-        public ISingleTone singleTone;
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, ISingleTone _singleTone)
+        //public ISingleTone singleTone;
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
         {
             _logger = logger;
             Configuration = configuration;
-            singleTone = _singleTone;
+            //singleTone = _singleTone;
         }
 
         public IActionResult Index()
@@ -66,7 +66,7 @@ namespace InvterViewTest.Controllers
         [HttpGet]
         public IActionResult insertCreate()
         {
-            singleTone.printname("Lalit chauhan");
+            //singleTone.printname("Lalit chauhan");
             return View("~/Views/CreatePage.cshtml");
         }
 
